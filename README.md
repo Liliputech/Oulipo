@@ -5,6 +5,7 @@ Fun with maths and letters
 http://oulipo.net/fr/contraintes/eodermdrome
 
 Usage : python eodermdrome.py [wordtotest]
+
 Prints 1 if the word to test is an eodermdrome,
 0 else.
 
