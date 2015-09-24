@@ -4,9 +4,12 @@ Fun with maths and letters
 ## Eodermdrome
 http://oulipo.net/fr/contraintes/eodermdrome
 
-Usage : python eodermdrome.py [wordtotest]
+Usage : python eodermdrome.py [dictfile]
 
-Prints 1 if the word to test is an eodermdrome,
-0 else.
+Prints all eodermdrome which are present in the dict file.
 
-Special thanks to ABO le tchèque for the design of the algorithm!
+The dictfile must be formatted with one word per line, ASCII encoding (python doesn't like accent too much).
+
+At the time of writing the script is able to print out eodermdrome made of two words of respectively 5 and 6 letters.
+
+Special thanks to ABO le tchèque for the design of the main algorithm!
