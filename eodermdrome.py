@@ -17,7 +17,7 @@
 import sys
 from collections import defaultdict
 from itertools import product, combinations, chain
-from eodermdrome import is_eodermdrome
+#from eodermdrome import is_eodermdrome
 
 dict_file=sys.argv[1]
 	
@@ -62,9 +62,9 @@ def find_eod_5_6(file):
 	for word in open(dict_file).read().split():
 		words[len(word)].append(word)
 	for combi in product(words[5],words[6]):
-		candidates.append(combi[0]+combi[1])
-		candidates.append(combi[1]+combi[0])
-	eods=list(filter(is_eodermdrome, candidates))
+		if(is_eodermdrome(combi[0]+combi[1])): candidates.append(combi[0]+combi[1])
+		if(is_eodermdrome(combi[1]+combi[0])): candidates.append(combi[1]+combi[0])
+	eods=candidates
 	return(eods)
 
 def sum_to_n(n):
@@ -76,4 +76,5 @@ def sum_to_n(n):
 
 #result = find_eod_simple(dict_file)
 result = find_eod_5_6(dict_file)
-print(result)
+for eod in result:
+	print(eod)
