@@ -12,6 +12,9 @@
 # This link also inspired me alot for the dictionnary bruteforcing part:
 # -http://wordaligned.org/articles/partitioning-with-python
 #
+# This work is also dedicated to my dear friend, mentor and colleage Densyo who "went away" the day before the release of this nifty piece of code.
+# He was a genius and have been of great influence for me.
+# 
 # Arthur Suzuki
 
 import sys
