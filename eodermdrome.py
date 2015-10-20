@@ -37,6 +37,9 @@ def is_eodermdrome(str=['']):
 			if(char1 not in mem):
 				mem.append(char1)
 				co=co+1
+			if(char2 not in mem):
+				mem.append(char2)
+				co=co+1
 			syl1=char1+char2
 			syl2=char2+char1
 			if(str.find(syl1,k+1)!=-1 or str.find(syl2,k+1)!=-1 or char1==char2 or co>5):
@@ -77,7 +80,7 @@ def sum_to_n(n):
 	splits = (d for i in range(n) for d in combinations(mid, i))
 	return(list(map(sub, chain(s,e),chain(b,s))) for s in splits)
 
-#result = find_eod_simple(dict_file)
-result = find_eod_5_6(dict_file)
+result = find_eod_simple(dict_file)
+#result = find_eod_5_6(dict_file)
 for eod in result:
 	print(eod)
