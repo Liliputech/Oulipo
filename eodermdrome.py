@@ -69,7 +69,6 @@ def find_eod_5_6(file):
 		words[len(word)].append(word)
 	for combi in product(words[5],words[6]):
 		if(is_eodermdrome(combi[0]+combi[1])): candidates.append(combi[0]+combi[1])
-		if(is_eodermdrome(combi[1]+combi[0])): candidates.append(combi[1]+combi[0])
 	eods=candidates
 	return(eods)
 
@@ -80,7 +79,22 @@ def sum_to_n(n):
 	splits = (d for i in range(n) for d in combinations(mid, i))
 	return(list(map(sub, chain(s,e),chain(b,s))) for s in splits)
 
-result = find_eod_simple(dict_file)
+def find_eod(file):
+	seq=chain.from_iterable
+	words=defaultdict(list)
+	candidates=[]
+	for word in open(dict_file).read().split():
+                words[len(word)].append(word)
+	for sum in sum_to_n(11):
+		batch=seq(words[sum[i]] for i in range(len(sum)))
+		for combi in combinations(batch,len(sum)):
+			x=""
+			for str in combi: x=x+str
+			if(is_eodermdrome(x)): candidates.append(x)
+	return(candidates)
+
+#result = find_eod_simple(dict_file)
 #result = find_eod_5_6(dict_file)
+result = find_eod(dict_file)
 for eod in result:
 	print(eod)
